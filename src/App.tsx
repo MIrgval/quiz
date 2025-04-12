@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { questions, Category } from "./data";
 import "./App.css";
-
+import zzz from"./assets/zzz.png"
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
@@ -49,7 +49,7 @@ function App() {
     const topCategories = getTopCategories();
     return (
       <div className="container">
-        <img src="/zzz.png" alt="logo" className="top-right-image" />
+        <img src={zzz}  alt="logo" className="top-right-image" />
 
         {/* Два зафиксированных заголовка */}
         <h1 className="page-title">Тест: Профориентация</h1>
@@ -84,7 +84,7 @@ function App() {
   const currentQuestion = questions[currentQuestionIndex];
   return (
     <div className="container">
-      <img src="/zzz.png" alt="logo" className="top-right-image" />
+      <img src={zzz}  alt="logo" className="top-right-image" />
 
       {/* Два зафиксированных заголовка */}
       <h1 className="page-title">Тест: Профориентация</h1>
