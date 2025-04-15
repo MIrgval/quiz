@@ -63,17 +63,22 @@ function App() {
 
   const sendResultToGoogleSheet = () => {
     const result = getTopCategories().join(", ");
-    const payload = {
-      ...userData,
-      result,
-    };
+
+    const formData = new URLSearchParams();
+    formData.append("surname", userData.surname);
+    formData.append("name", userData.name);
+    formData.append("email", userData.email);
+    formData.append("role", userData.role);
+    formData.append("result", result);
+    formData.append("scoreNature", scores["человек-природа"].toString());
+    formData.append("scoreTech", scores["человек-техника"].toString());
+    formData.append("scorePeople", scores["человек-человек"].toString());
+    formData.append("scoreSigns", scores["человек-знаковые системы"].toString());
+    formData.append("scoreArt", scores["человек-художественный образ"].toString());
 
     fetch("https://script.google.com/macros/s/AKfycbzWls675Q1maJmuRsEarwp-ARmgcDeIAWxbTsuc-vcc-VEm6b2_uI9WYcmu0vqOsnun/exec", {
       method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      body: formData,
     }).catch((err) => console.error("Ошибка отправки:", err));
   };
 
