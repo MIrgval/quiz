@@ -76,7 +76,7 @@ function App() {
     formData.append("scoreSigns", scores["человек-знаковые системы"].toString());
     formData.append("scoreArt", scores["человек-художественный образ"].toString());
 
-    fetch("https://script.google.com/macros/s/ВАШ_ID_СКРИПТА/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzWls675Q1maJmuRsEarwp-ARmgcDeIAWxbTsuc-vcc-VEm6b2_uI9WYcmu0vqOsnun/exec", {
       method: "POST",
       mode: "no-cors",
       body: formData,
