@@ -64,7 +64,7 @@ function App() {
   const sendResultToGoogleSheet = () => {
     const result = getTopCategories().join(", ");
 
-    const formData = new URLSearchParams();
+    const formData = new FormData();
     formData.append("surname", userData.surname);
     formData.append("name", userData.name);
     formData.append("email", userData.email);
@@ -79,9 +79,6 @@ function App() {
     fetch("https://script.google.com/macros/s/AKfycbzWls675Q1maJmuRsEarwp-ARmgcDeIAWxbTsuc-vcc-VEm6b2_uI9WYcmu0vqOsnun/exec", {
       method: "POST",
       mode: "no-cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
       body: formData,
     }).catch((err) => console.error("Ошибка отправки:", err));
   };
