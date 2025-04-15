@@ -79,6 +79,9 @@ function App() {
     fetch("https://script.google.com/macros/s/AKfycbzWls675Q1maJmuRsEarwp-ARmgcDeIAWxbTsuc-vcc-VEm6b2_uI9WYcmu0vqOsnun/exec", {
       method: "POST",
       mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       body: formData,
     }).catch((err) => console.error("Ошибка отправки:", err));
   };
