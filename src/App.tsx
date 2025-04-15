@@ -76,7 +76,7 @@ function App() {
     formData.append("scoreSigns", scores["человек-знаковые системы"].toString());
     formData.append("scoreArt", scores["человек-художественный образ"].toString());
 
-    fetch("https://script.google.com/macros/s/AKfycbzWls675Q1maJmuRsEarwp-ARmgcDeIAWxbTsuc-vcc-VEm6b2_uI9WYcmu0vqOsnun/exec", {
+    fetch("https://script.google.com/macros/s/ВАШ_ID_СКРИПТА/exec", {
       method: "POST",
       mode: "no-cors",
       body: formData,
@@ -92,8 +92,10 @@ function App() {
 
         <div className="main-content">
           <div className="form-group">
-            <label>Фамилия:</label>
+            <label htmlFor="surname">Фамилия:</label>
             <input
+              id="surname"
+              name="surname"
               placeholder="Фамилия"
               value={userData.surname}
               onChange={(e) => setUserData({ ...userData, surname: e.target.value })}
@@ -101,8 +103,10 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label>Имя:</label>
+            <label htmlFor="name">Имя:</label>
             <input
+              id="name"
+              name="name"
               placeholder="Имя"
               value={userData.name}
               onChange={(e) => setUserData({ ...userData, name: e.target.value })}
@@ -110,8 +114,10 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label>Email:</label>
+            <label htmlFor="email">Email:</label>
             <input
+              id="email"
+              name="email"
               placeholder="Email"
               type="email"
               value={userData.email}
@@ -120,8 +126,10 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label>Кто вы:</label>
+            <label htmlFor="role">Кто вы:</label>
             <select
+              id="role"
+              name="role"
               value={userData.role}
               onChange={(e) => setUserData({ ...userData, role: e.target.value })}
             >
